@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>定时器</title>
+  </head>
+  <body>
+    <!-- <button>停止定时器</button> -->
+    <button class="begin">开始定时器</button>
+    <button class="stop">停止定时器</button>
+    <script>
+      // //window.setTimeout ( 调用函数，[延迟的毫秒数]) ：在定时器到期后调用函数或计算表达式。
+      // //window 可省略  ，[延迟的毫秒数]也可省略，如果省略，默认为0 ，即立即执行
+      // setTimeout(function () {
+      //   console.log("时间到了");
+      // }, 2000); //2s后执行调用函数
+
+      // //这个调用函数可以直接写函数，还可以写函数名
+      // function callback() {
+      //   console.log("爆炸了");
+      // }
+      // setTimeout(callback, 3000);
+
+      // //还有一个写法 '函数名()' 但不提倡
+      // setTimeout("callback()", 3000);
+
+      // //页面中可能有很多定时器，我们经常给定时器起一个名字
+      // var time1 = setTimeout(callback, 3000);
+      // var time2 = setTimeout(callback, 5000);
+
+      // //window.clearTimeout(timeoutID)  停止setTimeout（）定时器定时器
+      // //window 可省略
+      // var btn = document.querySelector("button");
+      // btn.addEventListener("click", function () {
+      //   clearTimeout(time1); //time1是定时器的名字
+      // });
+
+      // //window.setInterval ( 回调函数 ，[间隔的秒数])
+      // setInterval(function () {
+      //   console.log("时间到了");
+      // }, 2000); //每隔2s后就执行一次调用函数
+      // //这个调用函数可以直接写函数，还可以写函数名
+      // function callback() {
+      //   console.log("爆炸了");
+      // }
+      // setInterval(callback, 3000);
+
+      //清除setInterval定时器
+      var begin = document.querySelector(".begin");
+      var stop = document.querySelector(".stop");
+      var timer = null; //定义全局变量 这样其他函数就可以访问这个变量 null是一个空对象
+      begin.addEventListener("click", function () {
+        timer = setInterval(function () {
+          console.log("定时器开始");
+        }, 1000);
+      });
+      stop.addEventListener("click", function () {
+        clearInterval(timer);
+      });
+    </script>
+  </body>
+</html>

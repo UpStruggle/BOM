@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>location 对象的方法</title>
+  </head>
+  <body>
+    <button>点击</button>
+    <script>
+      var btn = document.querySelector("button");
+      btn.addEventListener(function () {
+        //记录历史，所以可以后退页面
+        location.assign("http://baidu.com");
+        //不记录历史，所以不可以后退页面
+        location.replace("http://baidu.com");
+        //相当于刷新页面
+        location.reload();
+      });
+    </script>
+  </body>
+</html>

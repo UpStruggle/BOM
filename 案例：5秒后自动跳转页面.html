@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5秒后自动跳转页面</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      var div = document.querySelector("div");
+      var timer = 5;
+      CutDown(); //先调用一次这个函数，防止刚开始刷新页面时有空白问题
+      setInterval(CutDown, 1000);
+      function CutDown() {
+        if (timer == 0) {
+          location.href = "http://baidu.com";
+        } else {
+          div.innerHTML = "您将在" + timer + "内跳转页面";
+          timer--;
+        }
+      }
+    </script>
+  </body>
+</html>

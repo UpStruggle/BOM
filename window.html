@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOM</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      //   window.onload = function () {
+      //     var btn = document.querySelector("button");
+      //     btn.addEventListener("click", function () {
+      //       alert("点击我！");
+      //     });
+      //   };
+
+      //load 是等页面全部加载完毕，包含页面dom元素 图片 flash css 等
+      //DOMContentLoaded  是 DOM 加载完毕，不包含图片 flash css等就可以执行，加载速度比 load 更快
+      //先加载33 再弹出22
+      //   window.addEventListener("load", function () {
+      //     alert(22);
+      //   });
+
+      //   document.addEventListener("DOMContentLoaded", function () {
+      //     alert(33);
+      //   });
+
+      //window.resize 调整窗口大小事件 只要窗口大小发生改变，就会触发这个事件
+      window.addEventListener("load", function () {
+        var div = document.querySelector("div");
+        window.addEventListener("resize", function () {
+          console.log(window.innerWidth); //打印当前窗口宽度
+          if (window.innerWidth <= 800) {
+            div.style.display = "none"; //窗口宽度小于800时，盒子隐藏
+          } else {
+            div.style.display = "block";
+          }
+        });
+      });
+    </script>
+    <button>点击</button>
+    <div>盒子</div>
+  </body>
+</html>
